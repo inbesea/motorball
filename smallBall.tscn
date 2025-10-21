@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfxcn8yijt4vf"]
+
+[ext_resource type="PackedScene" uid="uid://cx037si25uvm6" path="res://scenes/ball.tscn" id="1_cxn8p"]
+
+[node name="Ball" instance=ExtResource("1_cxn8p")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture_filter = 1
+scale = Vector2(0.11963697, 0.11963697)
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(0.12495012, 0.12495012)
