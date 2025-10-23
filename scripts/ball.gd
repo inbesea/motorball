@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var speed = 100
+@export var speed = 60
 @export var maxSpeed = 400
 var canMove = true
 
@@ -18,12 +18,14 @@ func _process(delta: float) -> void:
 	
 	var vertMove: float = Input.get_axis("up", "down")
 	var horizMove: float = Input.get_axis("left", "right")
+	if get_contact_count() > 0:
+		canMove = true
 	if canMove && (vertMove != 0 || horizMove != 0) :		
-		if vertMove == 0:
-			if randf() > .5:
-				vertMove = -0.5
-			else :
-				vertMove = 0.5
+		#if vertMove == 0:
+			#if randf() > .5:
+				#vertMove = -0.5
+			#else :
+				#vertMove = 0.5
 		
 		if linear_velocity.length() > maxSpeed:
 			print("too fast!")
@@ -31,6 +33,7 @@ func _process(delta: float) -> void:
 		
 		var impulseVect = Vector2(horizMove, vertMove)
 		impulseVect = impulseVect.normalized()
+		impulseVect.y *= 1.6
 		print("moving ", speed," and ", impulseVect)
 		apply_impulse(impulseVect * speed)
 		#apply_impulse(Vector2(impulseVect.y * speed,impulseVect.x * (speed/2)))

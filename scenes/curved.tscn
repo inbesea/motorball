@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cexklwpi1jmmb"]
+
+[ext_resource type="Script" uid="uid://7x8seet4xgam" path="res://scripts/static_body_2d.gd" id="1_sntkg"]
+
+[sub_resource type="Curve2D" id="Curve2D_1574m"]
+bake_interval = 40.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 448, 0, 0, -285.15887, -1.7002411, 448, 448, 0, 291.61002, 0, 0, 0, 0)
+}
+point_count = 3
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("1_sntkg")
+
+[node name="Path2D" type="Path2D" parent="StaticBody2D"]
+curve = SubResource("Curve2D_1574m")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+
+[node name="Line2D" type="Line2D" parent="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
