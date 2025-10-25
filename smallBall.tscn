@@ -1,23 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfxcn8yijt4vf"]
+[gd_scene load_steps=6 format=3 uid="uid://cfxcn8yijt4vf"]
 
 [ext_resource type="PackedScene" uid="uid://cx037si25uvm6" path="res://scenes/ball.tscn" id="1_cxn8p"]
+[ext_resource type="Texture2D" uid="uid://cv22drdwia66s" path="res://assets/dustcloud1.png" id="2_pac1o"]
+
+[sub_resource type="Curve" id="Curve_pac1o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kghau"]
+curve = SubResource("Curve_pac1o")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cxn8p"]
+lifetime_randomness = 1.0
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 8.0
+angle_min = -433.5
+angle_max = 378.7
+angular_velocity_min = -31.140015
+angular_velocity_max = 39.85998
 gravity = Vector3(0, -9, 0)
+alpha_curve = SubResource("CurveTexture_kghau")
 
 [node name="Ball" instance=ExtResource("1_cxn8p")]
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="0"]
+texture_filter = 1
+amount = 100
+texture = ExtResource("2_pac1o")
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_cxn8p")
+
+[node name="Sprite2D" parent="." index="1"]
 texture_filter = 1
 scale = Vector2(0.11963697, 0.11963697)
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
 scale = Vector2(0.12495012, 0.12495012)
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="2"]
-amount = 40
-lifetime = 2.0
-process_material = SubResource("ParticleProcessMaterial_cxn8p")
