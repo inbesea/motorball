@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cexklwpi1jmmb"]
+[gd_scene load_steps=5 format=3 uid="uid://cexklwpi1jmmb"]
 
 [ext_resource type="Script" uid="uid://7x8seet4xgam" path="res://scripts/static_body_2d.gd" id="1_sntkg"]
+[ext_resource type="Texture2D" uid="uid://cl70g3hgs7hkw" path="res://assets/terrainOrangeBrown.png" id="2_at38u"]
+[ext_resource type="Texture2D" uid="uid://r67gpkfuiev6" path="res://assets/grassTerrain.png" id="3_gfi8w"]
 
 [sub_resource type="Curve2D" id="Curve2D_1574m"]
 bake_interval = 40.0
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 448, 0, 0, -285.15887, -1.7002411, 448, 448, 0, 291.61002, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, -285.15887, -1.7002411, 448, 448, 0, 291.61002, 0, 0, 0, 0, 0, 0, 0, 0, 0, 448, 0, 0, 0, 0, 448, 448)
 }
-point_count = 3
+point_count = 4
 
-[node name="Node2D" type="Node2D"]
+[node name="curved" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 script = ExtResource("1_sntkg")
@@ -18,7 +20,11 @@ script = ExtResource("1_sntkg")
 curve = SubResource("Curve2D_1574m")
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+texture_repeat = 2
+texture = ExtResource("2_at38u")
 
 [node name="Line2D" type="Line2D" parent="StaticBody2D"]
+texture = ExtResource("3_gfi8w")
+texture_mode = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]

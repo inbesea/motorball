@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://v4odl2h4ymlq"]
+
+[ext_resource type="Script" uid="uid://7x8seet4xgam" path="res://scripts/static_body_2d.gd" id="1_4dwau"]
+[ext_resource type="Texture2D" uid="uid://cl70g3hgs7hkw" path="res://assets/terrainOrangeBrown.png" id="2_3es2b"]
+[ext_resource type="Texture2D" uid="uid://r67gpkfuiev6" path="res://assets/grassTerrain.png" id="3_5py21"]
+
+[sub_resource type="Curve2D" id="Curve2D_1574m"]
+bake_interval = 40.0
+_data = {
+"points": PackedVector2Array(0, 0, 319.561, -0.1210022, 0, 448, -256.01514, 0, 0, 0, 448, 0, 0, 0, 0, 0, 448, 448, 0, 0, 0, 0, 0, 448)
+}
+point_count = 4
+
+[node name="sinCurve" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -448)
+script = ExtResource("1_4dwau")
+
+[node name="Path2D" type="Path2D" parent="StaticBody2D"]
+curve = SubResource("Curve2D_1574m")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+texture_repeat = 2
+texture = ExtResource("2_3es2b")
+
+[node name="Line2D" type="Line2D" parent="StaticBody2D"]
+texture = ExtResource("3_5py21")
+texture_mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]

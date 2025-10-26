@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://mx5i2fotw52c"]
+
+[ext_resource type="PackedScene" uid="uid://dd1ktyt5ar4gc" path="res://scenes/clover.tscn" id="1_wcjn7"]
+
+[node name="circle" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_wcjn7")]
+position = Vector2(128, 0)
+rotation = 1.5707964
+
+[node name="Node2D2" parent="." instance=ExtResource("1_wcjn7")]
+position = Vector2(0, 128)
+
+[node name="Node2D3" parent="." instance=ExtResource("1_wcjn7")]
+position = Vector2(128, 256)
+rotation = -1.5707964
+
+[node name="Node2D4" parent="." instance=ExtResource("1_wcjn7")]
+position = Vector2(256, 128)
+rotation = 3.1415927

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq1v5q6dw6g4y"]
+
+[ext_resource type="PackedScene" uid="uid://v4odl2h4ymlq" path="res://scenes/sinCurve.tscn" id="1_q5gvk"]
+
+[node name="Hump" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_q5gvk")]
+
+[node name="Node2D2" parent="." instance=ExtResource("1_q5gvk")]
+position = Vector2(896.00006, 0)
+scale = Vector2(-0.99999875, 1)

@@ -20,6 +20,8 @@ angle_max = 378.7
 angular_velocity_min = -31.140015
 angular_velocity_max = 39.85998
 gravity = Vector3(0, -9, 0)
+scale_min = 0.049999997
+scale_max = 0.59999996
 alpha_curve = SubResource("CurveTexture_kghau")
 
 [node name="Ball" instance=ExtResource("1_cxn8p")]
