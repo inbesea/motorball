@@ -20,7 +20,7 @@ angle_max = 378.7
 angular_velocity_min = -31.140015
 angular_velocity_max = 39.85998
 gravity = Vector3(0, -9, 0)
-scale_min = 0.049999997
+scale_min = 0.19999999
 scale_max = 0.59999996
 alpha_curve = SubResource("CurveTexture_kghau")
 
@@ -28,7 +28,7 @@ alpha_curve = SubResource("CurveTexture_kghau")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="0"]
 texture_filter = 1
-amount = 100
+amount = 200
 texture = ExtResource("2_pac1o")
 lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_cxn8p")
