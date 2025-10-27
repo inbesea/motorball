@@ -12,6 +12,7 @@ radius = 63.505905
 [node name="Ball" type="RigidBody2D"]
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_cxlvu")
+continuous_cd = 2
 script = ExtResource("1_cxlvu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
