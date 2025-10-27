@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://p1akoe7wp2mt"]
+[gd_scene load_steps=14 format=4 uid="uid://p1akoe7wp2mt"]
 
+[ext_resource type="Script" uid="uid://tkmx1g2mi64m" path="res://scenes/racetrack_test.gd" id="1_2rtci"]
 [ext_resource type="Texture2D" uid="uid://cksr3i0n3rnwh" path="res://assets/world_tileset.png" id="1_5eevh"]
 [ext_resource type="PackedScene" uid="uid://cfxcn8yijt4vf" path="res://scenes/smallBall.tscn" id="2_0fktb"]
 [ext_resource type="PackedScene" uid="uid://dq1v5q6dw6g4y" path="res://scenes/hump.tscn" id="3_2rtci"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dd1ktyt5ar4gc" path="res://scenes/clover.tscn" id="6_ytw8x"]
 [ext_resource type="PackedScene" uid="uid://detbk340tbxnr" path="res://scenes/platform.tscn" id="7_w4ie5"]
 [ext_resource type="PackedScene" uid="uid://mx5i2fotw52c" path="res://scenes/circle.tscn" id="8_4ibg7"]
+[ext_resource type="Texture2D" uid="uid://bpswbtlvbev7l" path="res://assets/icon.svg" id="10_nf7hr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r333w"]
 texture = ExtResource("1_5eevh")
@@ -173,7 +175,14 @@ texture = ExtResource("1_5eevh")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_r333w")
 
+[sub_resource type="Curve2D" id="Curve2D_4gn67"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 136, 32, 0, 0, 0, 0, 336, 24, 0, 0, 0, 0, 408, 96, 0, 0, 0, 0, 536, 80, 0, 0, 0, 0, 592, 16, 0, 0, 0, 0, 672, 0, 0, 0, 0, 0, 672, -184, 0, 0, 0, 0, 776, -208, 0, 0, 0, 0, 776, 48, 0, 0, 0, 0, 728, 96, 0, 0, 0, 0, 736, 160, 0, 0, 0, 0, 848, 184, 0, 0, 0, 0, 848, 448, 0, 0, 0, 0, 376, 456, 0, 0, 0, 0, 232, 304, 0, 0, 0, 0, 80, 432, 0, 0, 0, 0, 40, 408, 0, 0, 0, 0, 8, 224, 0, 0, 0, 0, -72, 128, 0, 0, 0, 0, -48, 24, 0, 0, 0, 0, 136, 32)
+}
+point_count = 21
+
 [node name="RacetrackTest" type="Node2D"]
+script = ExtResource("1_2rtci")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -182,6 +191,7 @@ tile_set = SubResource("TileSet_snck6")
 
 [node name="Ball" parent="." instance=ExtResource("2_0fktb")]
 position = Vector2(152, 80)
+continuous_cd = 0
 
 [node name="Camera2D" type="Camera2D" parent="Ball"]
 zoom = Vector2(2.5, 2.5)
@@ -226,28 +236,41 @@ position = Vector2(736.00006, 128)
 rotation = -1.5707964
 scale = Vector2(0.3740739, 0.3740739)
 
-[node name="Node2D" parent="." instance=ExtResource("6_ytw8x")]
+[node name="Node2D6" parent="Objects" instance=ExtResource("6_ytw8x")]
 position = Vector2(704.00006, -152)
 rotation = -1.5707964
 scale = Vector2(0.15379587, 0.37226814)
 
-[node name="platform" parent="." instance=ExtResource("7_w4ie5")]
+[node name="platform" parent="Objects" instance=ExtResource("7_w4ie5")]
 position = Vector2(640, 208)
 
-[node name="circle" parent="." instance=ExtResource("8_4ibg7")]
+[node name="circle" parent="Objects" instance=ExtResource("8_4ibg7")]
 position = Vector2(592, 184)
 
-[node name="Node2D2" parent="." instance=ExtResource("6_ytw8x")]
+[node name="Node2D7" parent="Objects" instance=ExtResource("6_ytw8x")]
 position = Vector2(184, 280)
 rotation = 1.5707964
 
-[node name="Node2D3" parent="." instance=ExtResource("6_ytw8x")]
+[node name="Node2D8" parent="Objects" instance=ExtResource("6_ytw8x")]
 position = Vector2(216, 352)
 
-[node name="Node2D4" parent="." instance=ExtResource("6_ytw8x")]
+[node name="Node2D9" parent="Objects" instance=ExtResource("6_ytw8x")]
 position = Vector2(400, 416)
-rotation = 3.1415927
+rotation = -3.1415925
 
-[node name="Node2D5" parent="." instance=ExtResource("6_ytw8x")]
+[node name="Node2D10" parent="Objects" instance=ExtResource("6_ytw8x")]
 position = Vector2(88, 480)
 rotation = -1.5707964
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_4gn67")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.27100492, 0.27100492)
+texture = ExtResource("10_nf7hr")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+visible_characters = 15
